@@ -1,0 +1,29 @@
+name: shared_packages
+description: Dart package for files shared within the main and the news_repository packages.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  equatable: ^2.0.5
+  http: ^1.2.2
+  flutter_dotenv: ^5.2.1
+
+  # Firebase
+
+
+
+ 
+  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0 
+
+flutter:
+  uses-material-design: true
