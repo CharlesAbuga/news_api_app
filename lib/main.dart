@@ -43,6 +43,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<ThemeChange>(builder: (context, theme, child) {
       return MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: theme.getTheme(),
         home: RepositoryProvider<GetNewsBloc>(

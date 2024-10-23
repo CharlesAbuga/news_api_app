@@ -58,13 +58,19 @@ class _TopStoriesState extends State<TopStories> {
                 // Ensure there are at least 3 items in the carousel
                 if (carouselItemsWithImages.length < 3) {
                   // If there still aren't enough items, repeat the last ones to fill up
-                  carouselItemsWithImages = List.generate(
-                    3,
-                    (index) => carouselItemsWithImages[
-                        index % carouselItemsWithImages.length],
-                  );
+                  if (carouselItemsWithImages.isNotEmpty) {
+                    carouselItemsWithImages = List.generate(
+                      3,
+                      (index) => carouselItemsWithImages[
+                          index % carouselItemsWithImages.length],
+                    );
+                  } else {
+                    // Handle the case where there are no items to display
+                    return const Center(
+                        child:
+                            Text('No news to display with this search term'));
+                  }
                 }
-
 // Ensure there are at least 3 items in carouselItems after adding
 
                 return SearchBar1.searchController.text == ''
@@ -111,7 +117,6 @@ class _TopStoriesState extends State<TopStories> {
             child: BlocBuilder<GetNewsBloc, GetNewsState>(
                 builder: (context, state) {
               if (state is GetNewsSuccess) {
-                print(state.news.first.title);
                 return ListView.builder(
                   shrinkWrap: true,
                   itemCount: state.news.length,
