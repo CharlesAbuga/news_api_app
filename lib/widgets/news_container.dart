@@ -39,23 +39,16 @@ class NewsContainer extends StatelessWidget {
       },
       child: Row(
         children: [
-          Positioned(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CachedNetworkImage(
-                  width: 100,
-                  height: 100,
-                  imageUrl: imageUrl,
-                  placeholder: (context, url) => const Center(
-                    child: CircularProgressIndicator(
-                      color: Colors.orange,
-                    ),
-                  ),
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
-                ),
-              ],
+          CachedNetworkImage(
+            width: 100,
+            height: 100,
+            imageUrl: imageUrl,
+            placeholder: (context, url) => const Center(
+              child: CircularProgressIndicator(
+                color: Colors.orange,
+              ),
             ),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
           const SizedBox(
             width: 10,

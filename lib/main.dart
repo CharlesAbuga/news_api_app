@@ -8,6 +8,7 @@ import 'package:news_app_ui/bloc/get_business_news/get_business_news_bloc.dart';
 import 'package:news_app_ui/bloc/get_health_news/get_health_news_bloc.dart';
 import 'package:news_app_ui/bloc/get_news/get_news_bloc.dart';
 import 'package:news_app_ui/bloc/get_tech_news/get_tech_news_bloc.dart';
+import 'package:news_app_ui/error_mode.dart';
 import 'package:news_app_ui/provider/theme_provider.dart';
 import 'package:news_app_ui/simple_bloc_observer.dart';
 import 'package:news_app_ui/themes.dart';
@@ -20,6 +21,7 @@ void main() async {
   ThemeChange themeChange = ThemeChange(lightTheme);
   Bloc.observer = SimpleBlocObserver();
   await themeChange.loadTheme();
+
   runApp(ChangeNotifierProvider(
     create: (context) => themeChange,
     child: BlocProvider(

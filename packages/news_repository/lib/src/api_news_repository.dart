@@ -70,6 +70,8 @@ class ApiNewsRepository implements NewsRepository {
       final response = await http.get(Uri.parse(
           'https://newsapi.org/v2/top-headlines?country=us&category=health&pageSize=100&apiKey=${ApiKey.apiKey}&q=${SearchBar1.searchController.text}'));
       if (response.statusCode == 200) {
+        print('Status code: ${response.statusCode}');
+        print('Response body: ${response.body}');
         Map<String, dynamic> jsonResponse = jsonDecode(response.body);
         List<dynamic> articles = jsonResponse['articles'];
         return articles

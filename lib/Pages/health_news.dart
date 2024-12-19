@@ -21,6 +21,7 @@ class HealthNewsScreen extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: state.news.length,
                 itemBuilder: (context, index) {
+                  print(state.news[index].url);
                   return NewsContainer(
                     url: state.news[index].url,
                     description: state.news[index].description,
